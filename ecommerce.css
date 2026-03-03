@@ -221,10 +221,7 @@ button:hover{
 .deal1:hover,.deal2:hover,.deal3:hover,.deal4:hover,.deal5:hover{
     animation:ease 0.5s shirt;
 }
-@keyframes shirt{
-    0%{transform:translateY(-10px);}
-    100%{transform:translateY(0px);}
-}
+
 .deal1{
     display: flex;
     flex-direction: column;
@@ -610,26 +607,28 @@ button:hover{
 @media (max-width:480px){
 
     .clothes{
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(2,1fr);
+        gap: 15px;
+        padding: 10px;
     }
 
     .product{
-        width: 260px;
+        width: 100%;
         height: auto ;
-        min-height: 320px;
+        min-height: 280px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 15px;
+        padding: 12px;
         box-sizing: border-box;
     }
 
     .product img{
         width: 100%;
-        height: 150px;
+        height: 140px;
         object-fit: contain;
         background: white;
+        border-radius: 6px;
     }
 
     .product button{
@@ -681,7 +680,7 @@ button:hover{
 .wishlist-panel{
     display: none;
     position: fixed;
-    right: 360px;
+    right: 20px;
     top: 90px;
     width: 320px;
     background: #ffffff;
@@ -721,6 +720,34 @@ button:hover{
     margin-bottom: 10px;
 }
 
+/* ==========================
+   MOBILE WISHLIST FIX
+========================== */
+
+@media (max-width:480px){
+
+    .wishlist-panel{
+        left: 10px;
+        right: 10px;
+        width: auto;
+        top: 70px;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    .wishlist-items li{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 14px;
+    }
+
+    .wishlist-items button{
+        align-self: flex-end;
+        padding: 5px 8px;
+        font-size: 13px;
+    }
+}
 
 /* ==========================
    MOBILE (480px)
@@ -739,7 +766,7 @@ button:hover{
 
 .buyBtn{
     flex: 1;
-    padding: 6px 10px;
+    padding: 6px;
     font-size: 13px;
     background: black;
     color: white;
@@ -749,7 +776,7 @@ button:hover{
 }
 
 .wishlistBtn{
-    width: 38px;
+    width: 40px;
     padding: 6px;
     font-size: 14px;
     color: white;
@@ -769,8 +796,8 @@ button:hover{
 
 /* Force buttons container */
 .product .btn-group{
-    display: flex !important;
-    flex-direction: row !important;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 8px;
     width: 100%;
@@ -779,18 +806,17 @@ button:hover{
 /* Buy button */
 .product .buyBtn{
     flex: 1 1 auto;
-    width: auto !important;
-    display: inline-block !important;
+    width: auto;
+    display: inline-block;
 }
 
 /* Wishlist button */
 .product .wishlistBtn{
-    width: 45px !important;
-    display: inline-block !important;
+    width: 45px ;
+    display: inline-block;
 }
 
 /* Prevent wrapping */
 .product .btn-group{
-    flex-wrap: nowrap !important;
-}
+    flex-wrap: nowrap ;
 }
