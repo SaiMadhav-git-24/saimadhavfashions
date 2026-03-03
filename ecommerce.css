@@ -233,7 +233,7 @@ button:hover{
     box-shadow: 2px 3px 30px gray;
     border-radius: 20px;
     background: linear-gradient(black,rgb(172, 3, 172));
-    color: black;
+    color: white;
     font-weight:bolder;
     font-size: large;
     height: 350px;
@@ -409,10 +409,14 @@ button:hover{
     .deal3,
     .deal4,
     .deal5{
-        width: 130px;
-        height: 260px;
+        width: 100%;
+        height: auto;              /* IMPORTANT: remove fixed height */
+        min-height: 300px;         /* keeps card balanced */
         padding: 12px;
         font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;   /* pushes button to bottom */
     }
 
     .deal1 img,
@@ -421,7 +425,8 @@ button:hover{
     .deal4 img,
     .deal5 img{
         height: 150px;
-        width: 130px;
+        width: 100%;
+        object-fit: cover;
     }
 
     .deal1 button,
@@ -430,6 +435,8 @@ button:hover{
     .deal4 button,
     .deal5 button{
         font-size: 14px;
+        margin-top: auto;          /* keeps button at bottom */
+        align-self: center;
     }
 }
 
@@ -590,11 +597,48 @@ button:hover{
     font-size: 16px;
 }
 
-/* Stop animation for product name (first span inside deal) */
+/* Stop animation for product name */
 .deal1 span:first-of-type,
 .deal2 span:first-of-type,
 .deal3 span:first-of-type,
 .deal4 span:first-of-type,
 .deal5 span:first-of-type{
     animation: none;
+}
+
+/* ================= MOBILE PRODUCT FIX ================= */
+
+@media (max-width:480px){
+
+    .clothes{
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .product{
+        width: 100% !important;
+        height: auto !important;
+        min-height: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .product img{
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .product button{
+        margin-top: auto;
+        width: 100%;
+        padding: 8px;
+        background: purple !important;
+        color: white;
+        font-size: 14px;
+        border-radius: 6px;
+    }
 }
