@@ -383,15 +383,15 @@ button:hover{
     }
 
     .menu{
-        flex-direction: row;     /* keep items in one line */
+        flex-direction: row;     
         justify-content: center;
-        flex-wrap: nowrap;       /* prevent breaking */
+        flex-wrap: nowrap;      
         gap: 12px;
-        font-size: 14px;         /* reduce size for mobile */
+        font-size: 14px;        
     }
 
     .logo h2{
-        font-size: 22px;         /* smaller logo text */
+        font-size: 22px;         
     }
 }
 
@@ -410,13 +410,13 @@ button:hover{
     .deal4,
     .deal5{
         width: 100%;
-        height: auto;              /* IMPORTANT: remove fixed height */
-        min-height: 300px;         /* keeps card balanced */
+        height: auto;              
+        min-height: 300px;         
         padding: 12px;
         font-size: 14px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;   /* pushes button to bottom */
+        justify-content: space-between;  
     }
 
     .deal1 img,
@@ -435,7 +435,7 @@ button:hover{
     .deal4 button,
     .deal5 button{
         font-size: 14px;
-        margin-top: auto;          /* keeps button at bottom */
+        margin-top: auto;         
         align-self: center;
     }
 }
@@ -529,8 +529,7 @@ button:hover{
     cursor: pointer;
 }
 
-/* cart */
-/* ===== CART PANEL ===== */
+/* CART PANEL */
 
 .cart-panel {
     display: none;
@@ -606,7 +605,7 @@ button:hover{
     animation: none;
 }
 
-/* ================= MOBILE PRODUCT FIX ================= */
+/* MOBILE PRODUCT FIX */
 
 @media (max-width:480px){
 
@@ -616,8 +615,8 @@ button:hover{
     }
 
     .product{
-        width: 100% !important;
-        height: auto !important;
+        width: 100% ;
+        height: auto ;
         min-height: 320px;
         display: flex;
         flex-direction: column;
@@ -636,7 +635,7 @@ button:hover{
         margin-top: auto;
         width: 100%;
         padding: 8px;
-        background: purple !important;
+        background: purple ;
         color: white;
         font-size: 14px;
         border-radius: 6px;
