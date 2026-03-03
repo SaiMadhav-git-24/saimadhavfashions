@@ -23,16 +23,14 @@
     <nav>
         <ul class="menu">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Products</a></li>
+            <li><a href="#" id="wishlistLink">Wishlist</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
-            <li><button>Cart (0)</button></li>
+            <li><button id="cartBtn">Cart (0)</button></li>
         </ul>
     </nav>
 
 </header>
-
-
 
 <!-- CATEGORIES -->
 <div class="cat">
@@ -68,45 +66,65 @@
 <!-- TODAY DEALS -->
 <div class="todaydeal">TODAY DEALS</div>
 
+<!-- PRODUCT GRID -->
 <div class="clothes">
 
     <div class="deal1 product" data-name="Blue Shirt" data-price="2000" data-category="mens">
         <img src="./shirt1.jpg">
         <span>Allen Solly Navy Blue Shirt</span>
         <span>₹2,000/- <del>2,499/-</del></span>
-        <button>Buy Now</button>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
     </div>
 
     <div class="deal2 product" data-name="White Shirt" data-price="1800" data-category="mens">
         <img src="./shirt2.jpg">
         <span>Allen Solly Off-White Print Shirt</span>
         <span>₹1,800/- <del>2,299/-</del></span>
-        <button>Buy Now</button>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
     </div>
 
     <div class="deal3 product" data-name="Pink Dress" data-price="2500" data-category="womens">
         <img src="./shirt3.jpg">
         <span>Allen Solly Maroon Shirt</span>
         <span>₹2,500/- <del>2,999/-</del></span>
-        <button>Buy Now</button>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
     </div>
 
     <div class="deal4 product" data-name="Black Shirt" data-price="1500" data-category="mens">
         <img src="./shirt4.jpg">
-
         <span>Allen Solly Light Pink Shirt</span>
         <span>₹1,500/- <del>1,999/-</del></span>
-        <button>Buy Now</button>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
     </div>
 
     <div class="deal5 product" data-name="Kids T-Shirt" data-price="1200" data-category="kids">
         <img src="./shirt5.jpg">
-        <span>Allen Solly Light Blue Printed Shirt </span>
+        <span>Allen Solly Light Blue Printed Shirt</span>
         <span>₹1,200/- <del>1,599/-</del></span>
-        <button>Buy Now</button>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
     </div>
 
-    <div id="cartPanel" class="cart-panel">
+</div>
+<!-- END CLOTHES -->
+
+
+<!-- ================= CART PANEL ================= -->
+<div id="cartPanel" class="cart-panel">
 
     <div class="cart-header">
         <h3>Your Cart</h3>
@@ -121,36 +139,44 @@
 
 </div>
 
+
+<!-- ================= WISHLIST PANEL ================= -->
+<div id="wishlistPanel" class="wishlist-panel">
+
+    <div class="wishlist-header">
+        <h3>Your Wishlist</h3>
+        <button id="closeWishlistBtn" class="close-wishlist">×</button>
+    </div>
+
+    <ul id="wishlistItems" class="wishlist-items"></ul>
+
 </div>
 
-<!-- Java Script -->
+
+<!-- JavaScript -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
     let cart = [];
+    let wishlist = [];
 
     const products = document.querySelectorAll(".product");
-    const cartButton = document.querySelector(".menu button");
+    const cartButton = document.getElementById("cartBtn");
     const cartPanel = document.getElementById("cartPanel");
     const cartItemsList = document.getElementById("cartItems");
     const cartTotal = document.getElementById("cartTotal");
     const closeCartBtn = document.getElementById("closeCartBtn");
 
+    const wishlistLink = document.getElementById("wishlistLink");
+    const wishlistPanel = document.getElementById("wishlistPanel");
+    const wishlistItemsList = document.getElementById("wishlistItems");
+    const closeWishlistBtn = document.getElementById("closeWishlistBtn");
 
-    const filterSelect = document.getElementById("categoryFilter");
-    const sortSelect = document.getElementById("sortPrice");
-    const searchInput = document.querySelector(".search-bar input");
-    const container = document.querySelector(".clothes");
-
-    /* =======================
-       ADD TO CART
-    ======================== */
-
+    /* ADD TO CART */
     products.forEach(product => {
-        const btn = product.querySelector("button");
+        const btn = product.querySelector(".buyBtn");
 
         btn.addEventListener("click", function () {
-
             const name = product.dataset.name;
             const price = parseInt(product.dataset.price);
 
@@ -159,139 +185,82 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    /* =======================
-       UPDATE CART
-    ======================== */
-
     function updateCartUI() {
+        cartItemsList.innerHTML = "";
 
-    cartItemsList.innerHTML = "";
+        cart.forEach((item, index) => {
+            const li = document.createElement("li");
+            li.textContent = item.name + " - ₹" + item.price;
 
-    cart.forEach((item, index) => {
+            const removeBtn = document.createElement("button");
+            removeBtn.textContent = "Remove";
 
-        const li = document.createElement("li");
+            removeBtn.onclick = function () {
+                cart.splice(index, 1);
+                updateCartUI();
+            };
 
-        const itemText = document.createElement("span");
-        itemText.textContent = item.name + " - ₹" + item.price;
-
-        const removeBtn = document.createElement("button");
-        removeBtn.textContent = "Remove";
-
-        removeBtn.addEventListener("click", function () {
-            cart.splice(index, 1);
-            updateCartUI();
+            li.appendChild(removeBtn);
+            cartItemsList.appendChild(li);
         });
 
-        li.appendChild(itemText);
-        li.appendChild(removeBtn);
-
-        cartItemsList.appendChild(li);
-    });
-
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    cartTotal.textContent = "Total: ₹" + total;
-
-    cartButton.textContent = "Cart (" + cart.length + ")";
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        cartTotal.textContent = "Total: ₹" + total;
+        cartButton.textContent = "Cart (" + cart.length + ")";
     }
 
-    /* =======================
-       TOGGLE CART
-    ======================== */
-
-    cartButton.addEventListener("click", function () {
+    cartButton.onclick = function () {
         cartPanel.style.display =
             cartPanel.style.display === "block" ? "none" : "block";
+    };
+
+    closeCartBtn.onclick = function () {
+        cartPanel.style.display = "none";
+    };
+
+    /* WISHLIST */
+    document.querySelectorAll(".wishlistBtn").forEach(btn => {
+        btn.onclick = function () {
+            const product = btn.closest(".product");
+            const name = product.dataset.name;
+
+            if (!wishlist.includes(name)) {
+                wishlist.push(name);
+                updateWishlistUI();
+            }
+        };
     });
 
-    /* =======================
-       SEARCH
-    ======================== */
+    function updateWishlistUI() {
+        wishlistItemsList.innerHTML = "";
 
-    if (searchInput) {
-        searchInput.addEventListener("keyup", function () {
-            const value = this.value.toLowerCase();
+        wishlist.forEach((item, index) => {
+            const li = document.createElement("li");
+            li.textContent = item;
 
-            products.forEach(product => {
-                const name = product.dataset.name.toLowerCase();
-                product.style.display = name.includes(value) ? "" : "none";
-            });
+            const removeBtn = document.createElement("button");
+            removeBtn.textContent = "Remove";
+
+            removeBtn.onclick = function () {
+                wishlist.splice(index, 1);
+                updateWishlistUI();
+            };
+
+            li.appendChild(removeBtn);
+            wishlistItemsList.appendChild(li);
         });
     }
 
-    /* =======================
-       FILTER
-    ======================== */
+    wishlistLink.onclick = function () {
+        wishlistPanel.style.display =
+            wishlistPanel.style.display === "block" ? "none" : "block";
+    };
 
-    if (filterSelect) {
-        filterSelect.addEventListener("change", function () {
-            const category = this.value;
-
-            products.forEach(product => {
-                product.style.display =
-                    category === "all" ||
-                    product.dataset.category === category
-                        ? "flex"
-                        : "none";
-            });
-        });
-    }
-
-    /* =======================
-       SORT
-    ======================== */
-
-    if (sortSelect) {
-        sortSelect.addEventListener("change", function () {
-
-            let productArray = Array.from(products);
-
-            if (this.value === "low") {
-                productArray.sort((a, b) =>
-                    parseInt(a.dataset.price) - parseInt(b.dataset.price)
-                );
-            }
-
-            if (this.value === "high") {
-                productArray.sort((a, b) =>
-                    parseInt(b.dataset.price) - parseInt(a.dataset.price)
-                );
-            }
-
-            productArray.forEach(product => {
-                container.appendChild(product);
-            });
-        });
-    }
+    closeWishlistBtn.onclick = function () {
+        wishlistPanel.style.display = "none";
+    };
 
 });
-
-/* ======================
-       CLOSE CART SECTION
-    ====================== */
-
-    // Close using X button
-    closeCartBtn.addEventListener("click", function () {
-        cartPanel.style.display = "none";
-    });
-
-    // Click outside to close
-    document.addEventListener("click", function (e) {
-        if (
-            cartPanel.style.display === "block" &&
-            !cartPanel.contains(e.target) &&
-            !cartButton.contains(e.target)
-        ) {
-            cartPanel.style.display = "none";
-        }
-    });
-
-    // ESC key to close
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-            cartPanel.style.display = "none";
-        }
-    });
-
 </script>
 
 </body>
