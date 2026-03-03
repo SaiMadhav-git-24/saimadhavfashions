@@ -1,0 +1,600 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+header{
+    display: flex;
+    background: linear-gradient(to right,black,rgb(162, 1, 162) 10%) ;
+    border: solid black 0.1px;
+    justify-content: space-between;
+    padding: 10px;
+}
+.logo>h2{
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.logo>h2{
+    color: rgb(215, 3, 215);
+}
+span{
+    color: black;
+    animation: fashion 3s ease infinite ;
+}
+@keyframes fashion{
+    0%{color: white; opacity: 0.3s;transform: translateY(2px);}
+}
+.menu{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 10px; 
+}
+.menu{
+    font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: white;
+}
+button{
+    display: flex;
+    border-radius: 4px;
+    padding: 5px 5px;
+    background: purple;
+    border: none;
+}
+button{
+    font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+}
+.cat{
+   margin:50px auto;
+   align-items: center;
+   gap: 10px;
+   text-align: center;
+}
+.categories{
+    display: flex;
+   margin-left: 10px;
+   margin-right: 10px;
+   max-width: 1280px;
+   align-items: center;
+   gap: 10px;
+   text-align: center;
+   justify-content: space-evenly;
+}
+.categories{
+font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.ethnicwear{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(rgb(171, 1, 171) 60%,black);
+  color: white;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 50% 50% 0px 0px;
+}
+.ethnicwear>img{
+    height: 100px;
+    width: 90px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.ethnicwear:hover{
+    color: violet;
+    animation:ease-in 0.4s ethnic;
+}
+@keyframes ethnic{
+    0%{transform:translateY(10px);}
+    100%{transform: translateY(0px);}
+}
+.menswear{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(rgb(171, 1, 171) 60%,black);
+  color: white;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 50% 50% 0px 0px;
+}
+.menswear>img{
+    height: 100px;
+    width: 90px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.menswear:hover{
+    color: violet;
+    animation:ease-in 0.4s men;
+}
+@keyframes men{
+    0%{transform:translateY(10px);}
+    100%{transform: translateY(0px);}
+}
+.womenswear{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(rgb(171, 1, 171) 60%,black);
+  color: white;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 50% 50% 0px 0px;
+}
+.womenswear>img{
+    height: 100px;
+    width: 90px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.womenswear:hover{
+    color: violet;
+    animation: women 0.4s ease-in;
+}
+@keyframes women{
+    0%{transform:translateY(10px);}
+    100%{transform: translateY(0px);}
+}
+.kidswear{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(rgb(171, 1, 171) 60%,black);
+  color: white;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 50% 50% 0px 0px;
+}
+.kidswear>img{
+    height: 100px;
+    width: 90px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.kidswear:hover{
+    color: violet;    
+    animation: kids 0.4s ease-in;
+}
+@keyframes kids{
+    0%{transform:translateY(10px);}
+    100%{transform: translateY(0px);}
+}
+.hoodies{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(rgb(171, 1, 171) 60%,black);
+  color: white;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 50% 50% 0px 0px; 
+}
+.hoodies>img{
+    height: 100px;
+    width: 90px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.hoodies:hover{
+   color: violet;
+    animation: hoodie 0.4s ease-in;
+}
+@keyframes hoodie{
+    0%{transform:translateY(10px);}
+    100%{transform: translateY(0px);}
+}
+.todaydeal{
+    text-align: center;
+    margin:3%;
+    font-weight: bolder;
+}
+.clothes{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(3,1fr);
+    justify-content: space-evenly;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 30px;
+    margin-left: 1%;
+}
+button{
+    background:none;
+}
+button:hover{
+    color: pink;
+}
+.deal1:hover,.deal2:hover,.deal3:hover,.deal4:hover,.deal5:hover{
+    animation:ease 0.5s shirt;
+}
+@keyframes shirt{
+    0%{transform:translateY(-10px);}
+    100%{transform:translateY(0px);}
+}
+.deal1{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 2px 3px 30px gray;
+    border-radius: 20px;
+    background: linear-gradient(black,rgb(172, 3, 172));
+    color: black;
+    font-weight:bolder;
+    font-size: large;
+    height: 350px;
+    width: 150px;
+    animation: clot1 1s ease infinite ;
+}
+@keyframes clot1{
+0%{ color: white;opacity: 0.3s;}
+}
+#a{
+    color: red;
+    font-size: small;
+}
+.deal1>img{
+    height: 200px;
+    width: 150px;
+    justify-content:space-evenly;
+    border-radius: 3px;
+}
+.deal2{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 2px 3px 30px gray;
+    border-radius: 20px;
+     background: linear-gradient(black,rgb(172, 3, 172));
+    color: black;
+    font-weight: bolder;
+    font-size: large;
+    height: 350px;
+    width: 150px;
+    animation: clot2 1s ease-in infinite ;
+}
+.deal2>img{
+    height: 200px;
+    width: 150px;
+    justify-content:space-evenly;
+    border-radius: 3px;
+}
+#b{
+    color: red;
+    font-size: small;
+}
+@keyframes clot2{
+0%{ color: white;opacity: 0.3s;}
+}
+.deal3{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 2px 3px 30px gray;
+    border-radius: 20px;
+     background: linear-gradient(black,rgb(172, 3, 172));
+    color: black;
+    font-weight: bolder;
+    font-size: large;
+    height: 350px;
+    width: 150px;
+    animation: clot3 1s ease infinite ;
+}
+.deal3>img{
+     height: 200px;
+    width: 150px;
+    justify-content:space-evenly;
+    border-radius: 3px;
+}
+#c{
+    color: red;
+    font-size: small;
+}
+@keyframes clot3{
+0%{ color: white;opacity: 0.3s;}
+}
+.deal4{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 2px 3px 30px gray;
+    border-radius: 20px;
+     background: linear-gradient(black,rgb(172, 3, 172));
+    color: black;
+    font-weight: bolder;
+    font-size: large;
+    height: 350px;
+    width: 150px;
+     animation: clot4 1s ease-in infinite ;
+}
+.deal4>img{
+     height: 200px;
+    width: 150px;
+    justify-content:space-evenly;
+    border-radius: 3px;
+}
+#d{
+    color: red;
+    font-size: small;
+}
+@keyframes clot4{
+0%{ color: white;opacity: 0.3s;}
+}
+.deal5{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 2px 3px 30px gray;
+    border-radius: 20px;
+     background: linear-gradient(black,rgb(172, 3, 172));
+    color: black;
+    font-weight: bolder;
+    font-size: large;
+    height: 350px;
+    width: 150px;
+    animation: clot5 1s ease-in infinite ;
+}
+.deal5>img{
+     height: 200px;
+    width: 150px;
+    justify-content:space-evenly;
+    border-radius: 3px;
+}
+#e{
+    color: red;
+    font-size: small;
+}
+@keyframes clot5{
+0%{ color: white;opacity: 0.3s;}
+}
+
+
+@media (max-width:1024px){
+    .clothes{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media (max-width:768px){
+
+    header{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .menu{
+        flex-direction: row;     /* keep items in one line */
+        justify-content: center;
+        flex-wrap: nowrap;       /* prevent breaking */
+        gap: 12px;
+        font-size: 14px;         /* reduce size for mobile */
+    }
+
+    .logo h2{
+        font-size: 22px;         /* smaller logo text */
+    }
+}
+
+
+@media (max-width:480px){
+
+    .clothes{
+        grid-template-columns: repeat(2,1fr);
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .deal1,
+    .deal2,
+    .deal3,
+    .deal4,
+    .deal5{
+        width: 130px;
+        height: 260px;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .deal1 img,
+    .deal2 img,
+    .deal3 img,
+    .deal4 img,
+    .deal5 img{
+        height: 150px;
+        width: 130px;
+    }
+
+    .deal1 button,
+    .deal2 button,
+    .deal3 button,
+    .deal4 button,
+    .deal5 button{
+        font-size: 14px;
+    }
+}
+
+
+    /*rewrited media*/
+    @media (max-width:768px){
+
+    .categories{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .ethnicwear,
+    .menswear,
+    .womenswear,
+    .kidswear,
+    .hoodies{
+        width: 140px;
+        padding: 15px;
+        border-radius: 40% 40% 0 0;
+    }
+
+    .ethnicwear img,
+    .menswear img,
+    .womenswear img,
+    .kidswear img,
+    .hoodies img{
+        height: 80px;
+        width: 70px;
+    }
+
+    .categories h2{
+        font-size: 16px;
+    }
+}
+
+@media (max-width:480px){
+
+    .categories{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .ethnicwear,
+    .menswear,
+    .womenswear,
+    .kidswear,
+    .hoodies{
+        width: 120px;
+        padding: 12px;
+        border-radius: 35% 35% 0 0;
+    }
+
+    .ethnicwear img,
+    .menswear img,
+    .womenswear img,
+    .kidswear img,
+    .hoodies img{
+        height: 70px;
+        width: 60px;
+    }
+
+    .categories h2{
+        font-size: 14px;
+    }
+}
+
+/*search bar media*/
+.search-bar{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-bar input{
+    padding: 6px 10px;
+    width: 250px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.search-bar button{
+    padding: 6px 12px;
+    background: black;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* cart */
+/* ===== CART PANEL ===== */
+
+.cart-panel {
+    display: none;
+    position: fixed;
+    right: 20px;
+    top: 90px;
+    width: 320px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 15px;
+    z-index: 1000;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.close-cart {
+    background: #ff3b3b;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.cart-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 15px;
+}
+
+.cart-items button {
+    background: #ff3b3b;
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-footer {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Stop animation for product name (first span inside deal) */
+.deal1 span:first-of-type,
+.deal2 span:first-of-type,
+.deal3 span:first-of-type,
+.deal4 span:first-of-type,
+.deal5 span:first-of-type{
+    animation: none;
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaiMadhav Fashions</title>
+<link rel="stylesheet" href="ecommerce.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <h2>SaiMadhav<span>Fashions</span></h2>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search products...">
+        <button>Search</button>
+    </div>
+
+    <nav>
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><button>Cart (0)</button></li>
+        </ul>
+    </nav>
+
+</header>
+
+
+
+<!-- CATEGORIES -->
+<div class="cat">
+    <h3>CATEGORIES</h3>
+</div>
+
+<div class="categories">
+    <div class="ethnicwear"><img src="./ethnic wear.png">ETHNIC WEAR</div>
+    <div class="menswear"><img src="./menwear.png">MENS WEAR</div>
+    <div class="womenswear"><img src="./womenswear.png">WOMENS WEAR</div>
+    <div class="kidswear"><img src="./kidswear.png">KIDS WEAR</div>
+    <div class="hoodies"><img src="./hoodie.png">HOODIES</div>
+</div>
+
+<br>
+
+<!-- CONTROLS -->
+<div class="controls" style="text-align:center; margin-bottom:20px;">
+    <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="mens">Mens</option>
+        <option value="womens">Womens</option>
+        <option value="kids">Kids</option>
+    </select>
+
+    <select id="sortPrice">
+        <option value="default">Sort By</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+    </select>
+</div>
+
+<!-- TODAY DEALS -->
+<div class="todaydeal">TODAY DEALS</div>
+
+<div class="clothes">
+
+    <div class="deal1 product" data-name="Blue Shirt" data-price="2000" data-category="mens">
+        <img src="./shirt1.jpg">
+        <span>Allen Solly Navy Blue Shirt</span>
+        <span>₹2,000/- <del>2,499/-</del></span>
+        <button>Buy Now</button>
+    </div>
+
+    <div class="deal2 product" data-name="White Shirt" data-price="1800" data-category="mens">
+        <img src="./shirt2.jpg">
+        <span>Allen Solly Off-White Print Shirt</span>
+        <span>₹1,800/- <del>2,299/-</del></span>
+        <button>Buy Now</button>
+    </div>
+
+    <div class="deal3 product" data-name="Pink Dress" data-price="2500" data-category="womens">
+        <img src="./shirt3.jpg">
+        <span>Allen Solly Maroon Shirt</span>
+        <span>₹2,500/- <del>2,999/-</del></span>
+        <button>Buy Now</button>
+    </div>
+
+    <div class="deal4 product" data-name="Black Shirt" data-price="1500" data-category="mens">
+        <img src="./shirt4.jpg">
+
+        <span>Allen Solly Light Pink Shirt</span>
+        <span>₹1,500/- <del>1,999/-</del></span>
+        <button>Buy Now</button>
+    </div>
+
+    <div class="deal5 product" data-name="Kids T-Shirt" data-price="1200" data-category="kids">
+        <img src="./shirt5.jpg">
+        <span>Allen Solly Light Blue Printed Shirt </span>
+        <span>₹1,200/- <del>1,599/-</del></span>
+        <button>Buy Now</button>
+    </div>
+
+    <div id="cartPanel" class="cart-panel">
+
+    <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button id="closeCartBtn" class="close-cart">×</button>
+    </div>
+
+    <ul id="cartItems" class="cart-items"></ul>
+
+    <div class="cart-footer">
+        <p id="cartTotal">Total: ₹0</p>
+    </div>
+
+</div>
+
+</div>
+
+<!-- Java Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    let cart = [];
+
+    const products = document.querySelectorAll(".product");
+    const cartButton = document.querySelector(".menu button");
+    const cartPanel = document.getElementById("cartPanel");
+    const cartItemsList = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+    const closeCartBtn = document.getElementById("closeCartBtn");
+
+
+    const filterSelect = document.getElementById("categoryFilter");
+    const sortSelect = document.getElementById("sortPrice");
+    const searchInput = document.querySelector(".search-bar input");
+    const container = document.querySelector(".clothes");
+
+    /* =======================
+       ADD TO CART
+    ======================== */
+
+    products.forEach(product => {
+        const btn = product.querySelector("button");
+
+        btn.addEventListener("click", function () {
+
+            const name = product.dataset.name;
+            const price = parseInt(product.dataset.price);
+
+            cart.push({ name, price });
+            updateCartUI();
+        });
+    });
+
+    /* =======================
+       UPDATE CART
+    ======================== */
+
+    function updateCartUI() {
+
+    cartItemsList.innerHTML = "";
+
+    cart.forEach((item, index) => {
+
+        const li = document.createElement("li");
+
+        const itemText = document.createElement("span");
+        itemText.textContent = item.name + " - ₹" + item.price;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "Remove";
+
+        removeBtn.addEventListener("click", function () {
+            cart.splice(index, 1);
+            updateCartUI();
+        });
+
+        li.appendChild(itemText);
+        li.appendChild(removeBtn);
+
+        cartItemsList.appendChild(li);
+    });
+
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    cartTotal.textContent = "Total: ₹" + total;
+
+    cartButton.textContent = "Cart (" + cart.length + ")";
+    }
+
+    /* =======================
+       TOGGLE CART
+    ======================== */
+
+    cartButton.addEventListener("click", function () {
+        cartPanel.style.display =
+            cartPanel.style.display === "block" ? "none" : "block";
+    });
+
+    /* =======================
+       SEARCH
+    ======================== */
+
+    if (searchInput) {
+        searchInput.addEventListener("keyup", function () {
+            const value = this.value.toLowerCase();
+
+            products.forEach(product => {
+                const name = product.dataset.name.toLowerCase();
+                product.style.display = name.includes(value) ? "" : "none";
+            });
+        });
+    }
+
+    /* =======================
+       FILTER
+    ======================== */
+
+    if (filterSelect) {
+        filterSelect.addEventListener("change", function () {
+            const category = this.value;
+
+            products.forEach(product => {
+                product.style.display =
+                    category === "all" ||
+                    product.dataset.category === category
+                        ? "flex"
+                        : "none";
+            });
+        });
+    }
+
+    /* =======================
+       SORT
+    ======================== */
+
+    if (sortSelect) {
+        sortSelect.addEventListener("change", function () {
+
+            let productArray = Array.from(products);
+
+            if (this.value === "low") {
+                productArray.sort((a, b) =>
+                    parseInt(a.dataset.price) - parseInt(b.dataset.price)
+                );
+            }
+
+            if (this.value === "high") {
+                productArray.sort((a, b) =>
+                    parseInt(b.dataset.price) - parseInt(a.dataset.price)
+                );
+            }
+
+            productArray.forEach(product => {
+                container.appendChild(product);
+            });
+        });
+    }
+
+});
+
+/* ======================
+       CLOSE CART SECTION
+    ====================== */
+
+    // Close using X button
+    closeCartBtn.addEventListener("click", function () {
+        cartPanel.style.display = "none";
+    });
+
+    // Click outside to close
+    document.addEventListener("click", function (e) {
+        if (
+            cartPanel.style.display === "block" &&
+            !cartPanel.contains(e.target) &&
+            !cartButton.contains(e.target)
+        ) {
+            cartPanel.style.display = "none";
+        }
+    });
+
+    // ESC key to close
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            cartPanel.style.display = "none";
+        }
+    });
+
+</script>
+
+</body>
+</html>
