@@ -260,6 +260,62 @@ document.addEventListener("DOMContentLoaded", function () {
         wishlistPanel.style.display = "none";
     };
 
+/* ======================
+   CATEGORY FILTER
+====================== */
+
+const categoryFilter = document.getElementById("categoryFilter");
+
+categoryFilter.addEventListener("change", function(){
+
+    const selectedCategory = this.value;
+
+    products.forEach(product => {
+
+        const productCategory = product.dataset.category;
+
+        if(selectedCategory === "all" || selectedCategory === productCategory){
+            product.style.display = "flex";
+        }
+        else{
+            product.style.display = "none";
+        }
+
+    });
+
+});
+
+
+/* ======================
+   SORT BY PRICE
+====================== */
+
+const sortPrice = document.getElementById("sortPrice");
+const clothesContainer = document.querySelector(".clothes");
+
+sortPrice.addEventListener("change", function(){
+
+    let productsArray = Array.from(products);
+
+    if(this.value === "low"){
+        productsArray.sort((a,b) =>
+            a.dataset.price - b.dataset.price
+        );
+    }
+
+    if(this.value === "high"){
+        productsArray.sort((a,b) =>
+            b.dataset.price - a.dataset.price
+        );
+    }
+
+    clothesContainer.innerHTML = "";
+
+    productsArray.forEach(product => {
+        clothesContainer.appendChild(product);
+    });
+
+});
 });
 </script>
 
