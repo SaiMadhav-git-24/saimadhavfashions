@@ -45,7 +45,7 @@ button{
     display: flex;
     border-radius: 4px;
     padding: 5px 5px;
-    background: purple;
+   background: rgb(162, 1, 162);
     border: none;
 }
 button{
@@ -90,13 +90,104 @@ border-radius:5px;
 }
 
 
-.clothes{
+.product-row{
 display:grid;
-grid-template-columns:repeat(6,1fr);
+grid-template-columns:repeat(6, 1fr);
 gap:30px;
 padding:20px;
 max-width:1400px;
 margin:auto;
+}
+
+/*search bar media queries*/
+
+/* Laptop */
+@media(max-width:1200px){
+.product-row{
+grid-template-columns:repeat(4,1fr);
+}
+}
+
+/* Tablet */
+@media(max-width:768px){
+.product-row{
+grid-template-columns:repeat(3,1fr);
+}
+}
+
+/* Mobile */
+@media(max-width:480px){
+.product-row{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+/* MOBILE HEADER FIX */
+
+@media(max-width:480px){
+
+header{
+flex-direction: column;
+align-items: center;
+gap:10px;
+}
+
+.logo{
+order:1;
+}
+
+.search-bar{
+order:2;
+width:100%;
+justify-content:center;
+}
+
+nav{
+order:3;
+}
+
+.menu{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.search-bar input{
+width:70%;
+}
+
+}
+
+/*search bar media*/
+.search-bar{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-bar input{
+color: black;
+background: white;
+padding:8px;
+border-radius:6px;
+border:none;
+}
+
+.search-bar input::placeholder{
+color: gray;
+}
+
+.search-bar button{
+    padding: 6px 14px;
+    color: black;
+    background: rgb(162, 1, 162);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button:hover
+{
+    color: white;
 }
 
 /* product card */
@@ -113,6 +204,8 @@ color: white;
 font-weight:bold;
 transition:0.3s;
 }
+
+
 
 /* hover animation */
 
@@ -179,7 +272,8 @@ grid-template-columns:repeat(3,1fr);
 
 /* Mobile */
 
-@media(max-width:480px){
+@media(max-width:480px)
+{
 
 .clothes{
 grid-template-columns:repeat(2,1fr);
@@ -188,6 +282,8 @@ gap:15px;
 
 .deal img{
 height:150px;
+}
+
 }
 
 
@@ -204,7 +300,6 @@ margin:20px;
 .filters select{
 padding:6px 10px;
 font-size:15px;
-}
 }
 
 /* MODAL BACKGROUND */

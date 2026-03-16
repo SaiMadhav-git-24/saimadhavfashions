@@ -16,8 +16,8 @@
     </div>
 
     <div class="search-bar">
-        <input type="text" placeholder="Search products...">
-        <button>Search</button>
+    <input type="text" id="searchInput" placeholder="Search products...">
+    <button id="searchBtn">Search</button>
     </div>
 
     <nav>
@@ -33,19 +33,33 @@
 </header>
 
 <!-- CATEGORIES -->
-<div class="cat">
-    <h3>CATEGORIES</h3>
+<div class="cat">CATEGORIES</div>
+
+<div class="category-wrapper">
+
+<button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
+
+<div class="categories" id="categorySlider">
+
+<a href="ethnic.html" class="ethnicwear"><img src="./ethnic wear.png">ETHNIC WEAR</a> 
+<a href="menswear.html" class="menswear"><img src="./menwear.png">MENS WEAR</a>
+<div class="womenswear"><img src="./womenswear.png">WOMENS WEAR</div>
+<div class="kidswear"><img src="./kidswear.png">KIDS WEAR</div>
+<div class="hoodies"><img src="./hoodie.png">HOODIES</div>
+<div class="footwear"><img src="./hoodie.png">FOOTWEAR</div>
+<div class="accessories"><img src="./hoodie.png">Accessories</div>
+<div class="beauty"><img src="./hoodie.png">Beauty</div>
+
 </div>
 
-<div class="categories">
-    <a href="ethnic.html" class="ethnicwear"><img src="./ethnic wear.png">ETHNIC WEAR</a> 
-     <a href="menswear.html" class="menswear"><img src="./menwear.png">MENS WEAR</a>
-    <div class="womenswear"><img src="./womenswear.png">WOMENS WEAR</div>
-    <div class="kidswear"><img src="./kidswear.png">KIDS WEAR</div>
-    <div class="hoodies"><img src="./hoodie.png">HOODIES</div>
+<button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
+
 </div>
 
 <br>
+
+<!-- TODAY DEALS -->
+<div class="todaydeal">TODAY DEALS</div>
 
 <!-- CONTROLS -->
 <div class="controls" style="text-align:center; margin-bottom:20px;">
@@ -62,9 +76,6 @@
         <option value="high">Price: High to Low</option>
     </select>
 </div>
-
-<!-- TODAY DEALS -->
-<div class="todaydeal">TODAY DEALS</div>
 
 <!-- PRODUCT GRID -->
 <div class="clothes">
@@ -109,7 +120,7 @@
         </div>
     </div>
 
-    <div class="deal5 product" data-name="Kids T-Shirt" data-price="1200" data-category="mens">
+    <div class="deal5 product" data-name="Light Blue Shirt" data-price="1200" data-category="mens">
         <img src="./shirt5.jpg">
         <span>Allen Solly Light Blue Printed Shirt</span>
         <span>₹1,200/- <del>1,599/-</del></span>
@@ -118,6 +129,199 @@
         <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
         </div>
     </div>
+
+    <div class="deal6 product" data-name="White Shirt" data-price="1499" data-category="mens">
+        <img src="./shirt6">
+        <span>Allen Solly White Shirt</span>
+        <span>₹1,499/- <del>1,999/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal7 product" data-name="Green Blazer" data-price="4999" data-category="womens">
+        <img src="./womenshirt1">
+        <span>Allen Solly Green Solid Blazers</span>
+        <span>₹4,999/- <del>9,999/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+    
+    <div class="deal8 product" data-name="Black Belt Wrap" data-price="1999" data-category="womens">
+        <img src="./womenshirt2">
+        <span>Allen Solly Black Belted Wrap Dress</span>
+        <span>₹1,999/- <del>4,999/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal9 product" data-name="office wear" data-price="1499" data-category="womens">
+        <img src="./womenshirt3">
+        <span>Allen Solly Checked Sheath Dress</span>
+        <span>₹1,499/- <del>2,999/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal10 product" data-name="office wear" data-price="4499" data-category="womens">
+        <img src="./womenshirt4">
+        <span>Allen Solly Grey Tailored Jacket</span>
+        <span>₹4,499/- <del>6,499/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+    
+    <div class="deal11 product" data-name="office wear" data-price="4999" data-category="womens">
+        <img src="./womenshirt5">
+        <span>Allen Solly Colour blocked Sheath Dress</span>
+        <span>₹4,999/- <del>7,999/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal12 product" data-name="office wear" data-price="999" data-category="womens">
+        <img src="./womenshirt6">
+        <span>Allen Solly Geometric Printed Tie-Ups Casual Shirt</span>
+        <span>₹999/- <del>1,999/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal13 product" data-name="woodland purse" data-price="1499" data-category="mens">
+        <img src="./purse1">
+        <span>Woodland Men's Purse</span>
+        <span>₹1,499/- <del>1,999/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal14 product" data-name="puma purse" data-price="1799" data-category="mens">
+        <img src="./purse2">
+        <span>Puma Bi-Fold Men's Purse</span>
+        <span>₹1,799/- <del>2,099/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal15 product" data-name="walmart purse" data-price="1999" data-category="mens">
+        <img src="./purse3">
+        <span>Walmart Tri-Fold Men's Purse</span>
+        <span>₹1,999/- <del>2,499/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal16 product" data-name="Van heusen purse" data-price="1999" data-category="womens">
+        <img src="./purse4">
+        <span>Van-Heusen Women's Purse</span>
+        <span>₹1,499/- <del>1,999/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal17 product" data-name="Syga purse" data-price="1999" data-category="womens">
+        <img src="./purse5">
+        <span>Syga Women's Purse</span>
+        <span>₹1,499/- <del>1,999/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal18 product" data-name="Louis Vuitton purse" data-price="9999" data-category="womens">
+        <img src="./purse6">
+        <span>Louis Vuitton Women's Purse</span>
+        <span>₹9,999/- <del>14,999/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal19 product" data-name="Boys set" data-price="699" data-category="kids">
+        <img src="./kids1">
+        <span>Smarty Boys Cream T-Shirt & Shorts Set </span>
+        <span>₹699/- <del>1,099/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal20 product" data-name="Boys set" data-price="799" data-category="kids">
+        <img src="./kids2">
+        <span>JASH KIDS Off White Half Sleeves Shirt & Shorts</span>
+        <span>₹799/- <del>1,299/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal21 product" data-name="Boys set" data-price="2499" data-category="kids">
+        <img src="./kids3">
+        <span>Good Luck Boy's Half Sleeves T-shirt & Shorts 5 Combo Set</span>
+        <br>
+        <span>₹2,499/-<del>3,999/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal22 product" data-name="Girls set" data-price="1499" data-category="kids">
+        <img src="./kids4">
+        <span>Girls and Toddlers' Long-Sleeve Outfit Set, Pack of 4</span>
+        <span>₹1,499/-<del>2,999/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal23 product" data-name="Girls set" data-price="999" data-category="kids">
+        <img src="./kids5">
+        <span>Smarty Girls Pink Half Sleeves Top & Shorts</span>
+        <span>₹999/- <del> 1,499/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+    <div class="deal24 product" data-name="Girls set" data-price="999" data-category="kids">
+        <img src="./kids6">
+        <span>Xumplo Girl's Top & Pants Sets</span>
+        <span>₹999/- <del> 1,499/-</del></span>
+        <div class="btn-group">
+        <button class="buyBtn">Buy Now</button>
+        <button class="wishlistBtn" onclick="toggleWishlist()">❤</button>
+        </div>
+    </div>
+
+
 
 </div>
 <!-- END CLOTHES -->
@@ -286,6 +490,66 @@ categoryFilter.addEventListener("change", function(){
 });
 
 
+
+
+/* ======================
+   SEARCH PRODUCTS
+====================== */
+
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+
+function searchProducts(){
+
+let value = searchInput.value.toLowerCase();
+
+products.forEach(product => {
+
+let text = product.innerText.toLowerCase();
+
+if(text.includes(value)){
+product.style.display = "flex";
+}
+else{
+product.style.display = "none";
+}
+
+});
+
+
+/* redirect to ethnic page */
+
+if(
+value.includes("kurta") ||
+value.includes("saree") ||
+value.includes("lehenga") ||
+value.includes("indo western")
+){
+window.location.href = "ethnic.html";
+return;
+}
+
+/* redirect to mens page */
+
+if(
+value.includes("shirt") ||
+value.includes("pant") ||
+value.includes("tshirt") ||
+value.includes("watch")
+){
+window.location.href = "menswear.html";
+return;
+}
+
+
+}
+
+searchBtn.addEventListener("click", searchProducts);
+searchInput.addEventListener("keyup", searchProducts);
+
+
+
+
 /* ======================
    SORT BY PRICE
 ====================== */
@@ -317,6 +581,32 @@ sortPrice.addEventListener("change", function(){
 
 });
 });
+
+
+/* ======================
+   Carousel
+====================== */
+
+const slider = document.getElementById("categorySlider");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+
+nextBtn.addEventListener("click", () => {
+    slider.scrollLeft += 200;
+});
+
+prevBtn.addEventListener("click", () => {
+    slider.scrollLeft -= 200;
+});
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const slider = document.getElementById("categorySlider");
+
+    slider.scrollLeft = 0;
+
+});
+
 </script>
 
 </body>

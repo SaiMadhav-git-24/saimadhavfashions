@@ -13,6 +13,11 @@
         <h2>SaiMadhav<span>Fashions</span></h2>
     </div>
 
+    <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search products...">
+    <button id="searchBtn">Search</button>
+    </div>
+
     <nav>
         <ul class="menu">
             <li><a href="./index.html">Home</a></li>
@@ -241,7 +246,7 @@
 
 <div class="clothes" id="kidsRow">
 
-<div class="deal" data-category="kids" data-price="6500">
+<div class="deal" data-name="Dark Green Indo Western" data-category="kids" data-price="6500">
 <img src="./Ethnic wear/ethnic kids wear 1">
 <div>Boys Dark Green Bel Buti Patterned Indo Western Set</div>
 <div>₹6,500/- <span class="old">10,999/-</span></div>
@@ -622,6 +627,59 @@ left:amount,
 behavior:"smooth"
 });
 }
+
+
+/* ======================
+   SEARCH PRODUCTS
+====================== */
+
+function searchProducts(){
+
+let value = searchInput.value.toLowerCase();
+
+let rows = [
+{title: document.getElementById("menSection"), row: document.getElementById("menRow")},
+{title: document.getElementById("womenSection"), row: document.getElementById("womenRow")},
+{title: document.getElementById("kidsSection"), row: document.getElementById("kidsRow")}
+];
+
+rows.forEach(section => {
+
+let products = section.row.querySelectorAll(".deal");
+
+let matchFound = false;
+
+products.forEach(product => {
+
+let text = product.innerText.toLowerCase();
+
+if(text.includes(value)){
+product.style.display = "block";
+matchFound = true;
+}
+else{
+product.style.display = "none";
+}
+
+});
+
+if(matchFound){
+section.title.style.display = "block";
+section.row.parentElement.style.display = "flex";
+}
+else{
+section.title.style.display = "none";
+section.row.parentElement.style.display = "none";
+}
+
+});
+
+}
+
+/* events */
+
+searchBtn.addEventListener("click", searchProducts);
+searchInput.addEventListener("keyup", searchProducts);
 
 
 </script>

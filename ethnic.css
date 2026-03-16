@@ -45,7 +45,7 @@ button{
     display: flex;
     border-radius: 4px;
     padding: 5px 5px;
-    background: purple;
+     background: rgb(162, 1, 162);
     border: none;
 }
 button{
@@ -89,23 +89,6 @@ border-radius:5px;
 }
 
 
-.carousel-container{
-position:relative;
-display:flex;
-align-items:center;
-overflow: visible;
-margin: 40px 30px;
-}
-
-.clothes{
-display:flex;
-gap:10px;
-overflow-x:auto;
-scroll-behavior:smooth;
-padding:20px 60 px;
-}
-
-
 
 .clothes::-webkit-scrollbar{
 display:none;
@@ -120,20 +103,40 @@ transform:translateY(-50%);
 background:purple;
 color:white;
 border:none;
-font-size:15px;
-padding:10px 10px;
+font-size:18px;
+padding:10px 12px;
 cursor:pointer;
 border-radius:50%;
-z-index:10;
-margin: 0 10px;
+z-index:20;
 }
 
 .left{
-left:-40px;
+left:-35px;
 }
 
 .right{
-right:-40px;
+right:-35px;
+}
+
+.carousel-container{
+position:relative;
+margin:40px auto;
+width:92%;
+overflow: visible;
+
+}
+
+.clothes{
+display:flex;
+gap:20px;
+overflow-x:scroll;
+scroll-behavior:smooth;
+scroll-snap-type:x mandatory;
+scrollbar-width:none;
+}
+
+.clothes::-webkit-scrollbar{
+display:none;
 }
 
 /* product card */
@@ -152,6 +155,8 @@ transition:0.3s;
 min-width:200px;
 max-width: 200px;
 
+flex-shrink: 0;
+scroll-snap-align:start;
 }
 
 /* hover animation */
@@ -215,6 +220,38 @@ cursor:pointer;
     color: violet;
 }
 
+/*search bar media*/
+.search-bar{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-bar input{
+color: black;
+background: white;
+padding:8px;
+border-radius:6px;
+border:none;
+}
+
+.search-bar input::placeholder{
+color: gray;
+}
+
+.search-bar button{
+    padding: 6px 14px;
+    color: black;
+    background: rgb(162, 1, 162);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button:hover
+{
+    color: white;
+}
 
 
 /* Categories*/
@@ -307,7 +344,7 @@ font-size:15px;
 
 /*Media queries*/
 /*Mobile*/
-@media (max-width:767px){
+@media (max-width:768px){
 
 header{
 flex-direction:column;
@@ -354,12 +391,16 @@ font-size:14px;
 padding:6px 8px;
 }
 
+.carousel-container{
+padding:0 20px;
+}
+
 .left{
-left:-20px;
+left:-15px;
 }
 
 .right{
-right:-20px;
+right:-15px;
 }
 
 .modal-content{
@@ -402,6 +443,41 @@ font-size:16px;
 
 .modal-content{
 width:80%;
+}
+
+}
+
+/* SMALL MOBILE */
+
+@media (max-width:480px){
+
+.clothes{
+gap:12px;
+padding:10px 40px;   /* space for carousel arrows */
+margin: 6%;
+}
+
+.deal{
+min-width:150px;
+max-width:150px;
+}
+
+.deal img{
+height:140px;
+width:140px;
+}
+
+.carousel-btn{
+font-size:14px;
+padding:5px 8px;
+}
+
+.left{
+left:10px;
+}
+
+.right{
+right:10px;
 }
 
 }

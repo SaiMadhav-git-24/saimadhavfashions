@@ -13,6 +13,11 @@
         <h2>SaiMadhav<span>Fashions</span></h2>
     </div>
 
+    <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search products...">
+    <button id="searchBtn">Search</button>
+    </div>
+
     <nav>
         <ul class="menu">
             <li><a href="./index.html">Home</a></li>
@@ -51,6 +56,7 @@
     
 <!-- Men -->
  <h2 class="section-title" id="shirtsSection">Shirts</h2>
+ <div class="product-row" id="shirtRow">
     <div class="deal" data-category="shirts" data-price="1499">
         <img src="./Mens Wear/shirt 1">
         <div>Classic Deep Rust Shirt</div>
@@ -123,10 +129,12 @@
         </div>
     </div>
 
+    </div>
+
 <!-- Pants -->
 
 <h2 class="section-title" id="pantsSection">Pants</h2>
-
+<div class="product-row" id="pantRow">
     <div class="deal" data-category="pants" data-price="499">
         <img src="./Mens Wear/pant 1">
         <div>Vogaan Luxury Stretchable Casual Pants</div>
@@ -199,9 +207,11 @@
         </div>
     </div>
 
+    </div>
+
     <!-- T Shirts-->
     <h2 class="section-title" id="tshirtsSection">T-Shirts</h2>
-
+    <div class="product-row" id="tshirtRow">
      <div class="deal" data-category="tshirts" data-price="999">
         <img src="./Mens Wear/tshirt 1">
         <div>Woods Blue Cotton Regular Fit Polo T-Shirt</div>
@@ -276,11 +286,12 @@
         </div>
     </div>
     
+    </div>
 
     <!--Watches-->
 
     <h2 class="section-title" id="watchesSection">Watches</h2>
-
+    <div class="product-row" id="watchRow">
     <div class="deal" data-category="watches" data-price="5999">
         <img src="./Mens Wear/watch 1">
         <div>Fossil Decker</div>
@@ -353,6 +364,8 @@
             <button>Buy Now</button>
             <span class="heart">❤</span>
         </div>
+    </div>
+
     </div>
 
 </div>
@@ -600,12 +613,16 @@ document.getElementById("watchesSection").style.display =
 
 function sortProducts(){
 
-let productArray = Array.from(products);
+let rows = document.querySelectorAll(".product-row");
 
-productArray.sort((a,b)=>{
+rows.forEach(row => {
 
-let priceA = parseInt(a.getAttribute("data-price"));
-let priceB = parseInt(b.getAttribute("data-price"));
+let items = Array.from(row.querySelectorAll(".deal"));
+
+items.sort((a,b)=>{
+
+let priceA = parseInt(a.dataset.price);
+let priceB = parseInt(b.dataset.price);
 
 if(sortPrice.value === "low"){
 return priceA - priceB;
@@ -619,12 +636,63 @@ return 0;
 
 });
 
-productArray.forEach(product=>{
-container.appendChild(product);
+items.forEach(item => row.appendChild(item));
+
 });
 
 }
 
+
+/* ======================
+   SEARCH PRODUCTS
+====================== */
+
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+
+function searchProducts(){
+
+let value = searchInput.value.toLowerCase();
+
+let rows = [
+{title: document.getElementById("shirtsSection"), row: document.getElementById("shirtRow")},
+{title: document.getElementById("pantsSection"), row: document.getElementById("pantRow")},
+{title: document.getElementById("tshirtsSection"), row: document.getElementById("tshirtRow")},
+{title: document.getElementById("watchesSection"), row: document.getElementById("watchRow")}
+];
+
+rows.forEach(section => {
+
+if(!section.row) return;
+
+let products = section.row.querySelectorAll(".deal");
+let matchFound = false;
+
+products.forEach(product => {
+
+let text = product.innerText.toLowerCase();
+
+if(text.includes(value)){
+product.style.display = "";
+matchFound = true;
+}else{
+product.style.display = "none";
+}
+
+});
+
+section.title.style.display = matchFound ? "block" : "none";
+section.row.style.display = matchFound ? "grid" : "none";
+
+/* center results */
+section.row.style.justifyContent = "center";
+
+});
+
+}
+
+searchBtn.addEventListener("click", searchProducts);
+searchInput.addEventListener("keyup", searchProducts);
 </script>
 
 </body>
