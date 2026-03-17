@@ -406,7 +406,7 @@ button{
     background:none;
 }
 button:hover{
-    color: pink;
+    color: violet;
 }
 
 
@@ -810,6 +810,11 @@ color: gray;
     margin-bottom: 10px;
 }
 
+.wishlistBtn:hover
+{
+    color: red;
+}
+
 /* ==========================
    MOBILE WISHLIST FIX
 ========================== */
@@ -837,6 +842,8 @@ color: gray;
         padding: 5px 8px;
         font-size: 13px;
     }
+
+    
 }
 
 /* ==========================
