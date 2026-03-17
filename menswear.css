@@ -284,6 +284,15 @@ gap:15px;
 height:150px;
 }
 
+.button
+{
+  color:white;
+border:none;
+padding:5px 8px;
+border-radius:8px;
+cursor:pointer;
+}
+
 }
 
 
