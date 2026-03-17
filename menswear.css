@@ -284,13 +284,14 @@ gap:15px;
 height:150px;
 }
 
-.button
-{
-  color:white;
-border:none;
-padding:5px 8px;
-border-radius:8px;
-cursor:pointer;
+button{
+padding:8px 12px;   
+font-size:14px;     
+border-radius:6px;
+}
+
+.heart{
+font-size:18px;
 }
 
 }
